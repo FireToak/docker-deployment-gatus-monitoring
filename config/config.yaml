@@ -1,0 +1,102 @@
+storage:
+  type: sqlite
+  path: /config/data.db
+
+ui:
+  title: "LoutikCLOUD - Statut"
+  header: "LoutikCLOUD"
+  dashboard-heading: "État des Services"
+  dashboard-subheading: "Monitoring temps réel des plateformes LoutikCLOUD"
+  logo: "https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutik-health.png"
+  favicon.default: https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutik-health.png
+
+announcements:
+#  - timestamp: 2025-11-07T14:00:00Z
+#    type: outage
+#    message: "Scheduled maintenance on database servers from 14:00 to 16:00 UTC"
+#  - timestamp: 2025-11-07T16:15:00Z
+#    type: operational
+#    message: "Database maintenance completed successfully. All systems operational."
+#  - timestamp: 2025-11-07T12:00:00Z
+#    type: information
+#    message: "New monitoring dashboard features will be deployed next week"
+#  - timestamp: 2026-01-24T14:00:00Z
+#    type: warning
+#    message: "Suite à une panne"
+#    archived: true
+
+endpoints:
+  # GROUPE : SITES INTERNET
+  - name: "Site Vitrine"
+    group: "Sites Internet"
+    url: "https://www.loutik.fr"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: "Portfolio"
+    group: "Sites Internet"
+    url: "https://louis.loutik.fr"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: "Documentation"
+    group: "Sites Internet"
+    url: "https://docs.loutik.fr"
+    interval: 5m
+    conditions:
+      - "[STATUS] == 200"
+
+  # GROUPE : COMPUTE (HYPERVISEURS)
+  - name: "Gideon (PVE01)"
+    group: "Compute"
+    url: "https://pve-gideon.loutik.fr"
+    display-name: "Hyperviseur Principal"
+    client:
+      dns-resolver: "tcp://192.168.1.204:53"
+    interval: 10s
+    conditions:
+      - "[STATUS] == 200"
+
+  - name: "Darlene (PVE02)"
+    group: "Compute"
+    url: "https://pve-darlene.loutik.fr"
+    display-name: "Hyperviseur Secondaire"
+    client:
+      dns-resolver: "tcp://192.168.1.204:53"
+    interval: 10s
+    conditions:
+      - "[STATUS] == 200"
+
+  # GROUPE : SÉCURITÉ & CORE
+  - name: "SSO Authentik"
+    group: "Sécurité"
+    url: "https://sso.loutik.fr"
+    interval: 1m
+    conditions:
+      - "[STATUS] == 200"
+
+  # GROUPE : OUTILS COLLABORATIFS
+  - name: "Outline (Notes)"
+    group: "Outils Collaboratifs"
+    url: "https://notes.loutik.fr"
+    interval: 2m
+    conditions:
+      - "[STATUS] == 200"
+
+  # GROUPE : SERVICES & UTILITAIRES
+#  - name: "Bot Discord PLC"
+#    group: "Services"
+#    url: "http://192.168.1.215:80"
+#    display-name: "PLC Bot Instance"
+#    interval: 1m
+#    conditions:
+#      - "[STATUS] == 200"
+
+  - name: "Speedtest"
+    group: "Services"
+    url: "https://speedtest.loutik.fr"
+    interval: 10m
+    conditions:
+      - "[STATUS] == 200"
