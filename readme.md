@@ -68,8 +68,8 @@ La configuration actuelle (`config/config.yaml`) surveille les groupes de servic
 **Clonage du dépôt**
 
 ```bash
-git clone https://github.com/FireToak/deployments-gatus-monitoring.git
-cd deployments-gatus-monitoring
+git clone https://github.com/FireToak/docker-deployment-gatus-monitoring.git
+cd docker-deployment-gatus-monitoring
 
 ```
 
