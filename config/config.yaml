@@ -54,7 +54,7 @@ endpoints:
     url: "https://pve-gideon.loutik.fr"
     display-name: "Hyperviseur Principal"
     client:
-      dns-resolver: "tcp://192.168.1.204:53"
+      dns-resolver: "tcp://192.168.30.253:53"
     interval: 10s
     conditions:
       - "[STATUS] == 200"
@@ -64,7 +64,7 @@ endpoints:
     url: "https://pve-darlene.loutik.fr"
     display-name: "Hyperviseur Secondaire"
     client:
-      dns-resolver: "tcp://192.168.1.204:53"
+      dns-resolver: "tcp://192.168.30.253:53"
     interval: 10s
     conditions:
       - "[STATUS] == 200"
