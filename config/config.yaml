@@ -7,8 +7,8 @@ ui:
   header: "LoutikCLOUD"
   dashboard-heading: "État des Services"
   dashboard-subheading: "Monitoring temps réel des plateformes LoutikCLOUD"
-  logo: "https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutik-health.png"
-  favicon.default: https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutik-health.png
+  logo: "https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutikhealth.png"
+  favicon.default: https://raw.githubusercontent.com/firetoak/medias/main/logo/logo_loutikhealth.png
 
 announcements:
 #  - timestamp: 2025-11-07T14:00:00Z
@@ -69,7 +69,7 @@ endpoints:
     conditions:
       - "[STATUS] == 200"
 
-  # GROUPE : SÉCURITÉ & CORE
+  # GROUPE : SÉCURITÉ
   - name: "SSO Authentik"
     group: "Sécurité"
     url: "https://sso.loutik.fr"
@@ -77,22 +77,7 @@ endpoints:
     conditions:
       - "[STATUS] == 200"
 
-  # GROUPE : OUTILS COLLABORATIFS
-  - name: "Outline (Notes)"
-    group: "Outils Collaboratifs"
-    url: "https://notes.loutik.fr"
-    interval: 2m
-    conditions:
-      - "[STATUS] == 200"
-
-  # GROUPE : SERVICES & UTILITAIRES
-#  - name: "Bot Discord PLC"
-#    group: "Services"
-#    url: "http://192.168.1.215:80"
-#    display-name: "PLC Bot Instance"
-#    interval: 1m
-#    conditions:
-#      - "[STATUS] == 200"
+  # GROUPE : SERVICES
 
   - name: "Speedtest"
     group: "Services"
