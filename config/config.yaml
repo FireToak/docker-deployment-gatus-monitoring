@@ -51,23 +51,23 @@ endpoints:
   # GROUPE : COMPUTE (HYPERVISEURS)
   - name: "Gideon (PVE01)"
     group: "Compute"
-    url: "https://pve-gideon.loutik.fr"
+    url: "icmp://pve-gideon.loutik.fr"
     display-name: "Hyperviseur Principal"
     client:
-      dns-resolver: "tcp://192.168.30.253:53"
+      dns-resolver: "tcp://192.168.40.2:53"
     interval: 10s
     conditions:
-      - "[STATUS] == 200"
+      - "[CONNECTED] == true"
 
   - name: "Darlene (PVE02)"
     group: "Compute"
-    url: "https://pve-darlene.loutik.fr"
+    url: "icmp://pve-darlene.loutik.fr"
     display-name: "Hyperviseur Secondaire"
     client:
-      dns-resolver: "tcp://192.168.30.253:53"
+      dns-resolver: "tcp://192.168.40.2:53"
     interval: 10s
     conditions:
-      - "[STATUS] == 200"
+      - "[CONNECTED] == true"
 
   # GROUPE : SÉCURITÉ
   - name: "SSO Authentik"
